@@ -27,7 +27,7 @@ const db = getFirestore(app);
 
 export async function ambilDaftarmapel() {
   const refDokumen = collection(db, "jadwal-mapel");
-  const kueri = query(refDokumen, orderBy("nama"));
+  const kueri = query(refDokumen, orderBy("mapel"));
   const cuplikanKueri = await getDocs(kueri);
 
   let hasil = [];
@@ -45,3 +45,6 @@ export async function ambilDaftarmapel() {
 
   return hasil
 }
+
+//export function formatAngka(x) {
+  //return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g,".");
