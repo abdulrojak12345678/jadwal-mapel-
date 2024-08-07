@@ -74,7 +74,7 @@
 
 
   <script type="module">
-    import { ambilDaftarmapel, } from './main.js';
+    import { ambilDaftarmapel, hapusmapel, ubahdaftarmapel } from './main.js';
 
     $(document).ready(async function() {
       let elemenDaftar = $("#jadwalmapel > tbody");
@@ -108,7 +108,7 @@
       })
 
       $('.link-ubah').click(async function() {
-        window.location.replace('ubah-jadwal-mapel.html?docId=' + $(this).attr('data'));
+        window.location.replace('ubah-mapel.html?docId=' + $(this).attr('data'));
       })
 
       $('#loader').hide();

@@ -63,3 +63,25 @@ export async function ambilDaftarmapel() {
     console.log('gagal menambah jadwal' + e);
   }
 }
+
+//fungsi untuk hapus data
+export async function hapusmapel(docId) {
+  await deleteDoc(doc(db, "jadwal-mapel", docId));
+}
+//fungsi untuk ubah data
+export async function ubahdaftarmapel(docId, hari, waktu, kelas, mapel, gurumapel) {
+  await updateDoc(doc(db, "jadwal-mapel", docId), {
+    hari: hari,
+    waktu: waktu,
+    kelas: kelas,
+    mapel: mapel,
+    gurumapel: gurumapel
+  });
+}
+//fungsi untuk ambil data dan untuk diubah
+export async function ambildaftarmapel(docId) {
+  const docRef = await doc(db, "jadwal-mapel", docId);
+  const docSnap = await getDoc(docRef);
+
+  return await docSnap.data();
+}
