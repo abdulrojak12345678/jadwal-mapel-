@@ -47,4 +47,19 @@ export async function ambilDaftarmapel() {
 }
 
 //export function formatAngka(x) {
-  //return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g,".");
+//return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g,".");
+  
+  export async function tambahjadwalmapel(hari, waktu, kelas, mapel, gurumapel) {
+  try {
+    const dokRef = await addDoc(collection(db, 'jadwal-mapel'), {
+      hari: hari,
+      waktu: waktu,
+      kelas: kelas,
+      mapel: mapel,
+     gurumapel:gurumapel
+    });
+    console.log('berhasil menembah jadwal ' + dokRef.id);
+  } catch (e) {
+    console.log('gagal menambah jadwal' + e);
+  }
+}

@@ -39,7 +39,7 @@
   </div>
 
   <div class="d-flex justify-content-center">
-    <button onclick="location.href='form-penjual.html'" style="background-color: red; color: black; border-radius: 10px;">Tambah penjual</button>
+    <button onclick="location.href='form-jadwal.html'" style="background-color: red; color: black; border-radius: 10px;">Tambah jadwal mapel</button>
   </div>
 
 
@@ -74,7 +74,7 @@
 
 
   <script type="module">
-    import { ambilDaftarmapel } from './main.js';
+    import { ambilDaftarmapel, } from './main.js';
 
     $(document).ready(async function() {
       let elemenDaftar = $("#jadwalmapel > tbody");
@@ -101,6 +101,20 @@
         );
         nomor = nomor + 1;
       });
+      
+       $('.tombol-hapus').click(async function() {
+        await hapusmapel($(this).attr('data'));
+        location.reload();
+      })
+
+      $('.link-ubah').click(async function() {
+        window.location.replace('ubah-jadwal-mapel.html?docId=' + $(this).attr('data'));
+      })
+
+      $('#loader').hide();
+      
+      
+      
     });
   </script>
 
