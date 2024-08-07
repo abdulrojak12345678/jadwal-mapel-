@@ -26,7 +26,7 @@
       <input type="text" class="form-control" id="input-waktu">
     </div>
     <div class="mb-3">
-     <select class="form-select" aria-label="Default select example id="input-kelas">
+     <select class="form-select" aria-label="Default select example" id="input-kelas">
   <option selected>kelas</option>
   <option value="1">X</option>
   <option value="2">XI</option>
@@ -59,7 +59,7 @@
 
     tombolTambah.addEventListener('click', async function(e) {
       e.preventDefault();
-      await tambahjadwalmapel(elemenhari.value, elemenwaktu.value, elemenkelas.value, elemenmapel.value, gurumapel.value);
+      await tambahjadwalmapel(elemenhari.value, elemenwaktu.value, elemenkelas.value, elemenmapel.value, elemengurumapel.value);
       window.location.href = 'index.html'
     })
   </script>
