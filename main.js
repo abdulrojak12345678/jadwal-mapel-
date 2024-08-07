@@ -26,7 +26,7 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 export async function ambilDaftarmapel() {
-  const refDokumen = collection(db, "jadwal mapel");
+  const refDokumen = collection(db, "jadwal-mapel");
   const kueri = query(refDokumen, orderBy("nama"));
   const cuplikanKueri = await getDocs(kueri);
 
@@ -38,7 +38,7 @@ export async function ambilDaftarmapel() {
       waktu: dok.data().waktu,
       kelas: dok.data().kelas,
       mapel: dok.data().mapel,
-      nama guru:dok.data().nama guru,
+      gurumapel:dok.data().gurumapel
     });
   });
 

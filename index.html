@@ -18,7 +18,7 @@
 
 
 
-  <table class="table" id="daftar-Penjual">
+  <table class="table" id="jadwalmapel">
     <thead>
       <tr>
         <th scope="col">#</th>
@@ -31,9 +31,18 @@
     </thead>
     <tbody>
     </tbody>
-  </table
+  </table>
+  
+  <div class="d-flex justify-content-center">
+  <img src="loader.gif" style="width: 1em; display: block" id="loader">
+  </div>
 
-    <style>
+<div class="d-flex justify-content-center">
+  <button onclick="location.href='form-penjual.html'" style="background-color: red; color: black; border-radius: 10px;">Tambah penjual</button>
+</div>
+
+
+  <style>
     table {
       width: 100%;
       border-collapse: collapse;
@@ -63,10 +72,33 @@
   </style>
   
   
-  <script src="main.js">import { ambilDaftarmapel, formatAngka, hapusPenjual } from './main.js';
+  <script type="modul">import { ambilDaftarmapel, formatAngka, hapusmapel } from './main.js';
  
+   $(document).ready(async function() {
+      let elemenDaftar = $("#jadwalmapel > tbody");
+      let daftarmapel = await ambilDaftarmapel();
+      let nomor = 1;
  
- 
+  daftarmapel.forEach((data) => {
+        elemenDaftar.append(
+          '<tr>' +
+          '<th>' + nomor + '</th>' +
+          '<td>' + data.hari + '</td>' +
+          '<td>' + data.waktu + '</td>' + 
+          '<td>' + data.kelas + '</td>' +
+          '<td>' + data.mapel + '</td>' + 
+          '<td>' + data.gurumapel + '</td>' +
+          '<td class="stack-up">' +
+          ' <a href="#" class="btn btn-warning link-ubah"  data="' +
+          data.id +
+          '">ubah</a> ' +
+          ' <button class="btn btn-danger tombol-hapus" data="' +
+          data.id +
+          '">Hapus</button>' + '</td>' +
+          '</tr>'
+        );
+        nomor = nomor + 1;
+      });
  
  
  
